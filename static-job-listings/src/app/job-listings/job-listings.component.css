@@ -1,0 +1,21 @@
+.listings {
+}
+
+.listings__listing-TEMP {
+  display: flex;
+}
+
+.listings__listing-company-new-featured-wrapper {
+  display: flex;
+  gap: 1rem;
+}
+
+.listings__listing-posted-contract-location-wrapper {
+  display: flex;
+  gap: 1rem;
+}
+
+.listings__listing-languages-tools {
+  display: flex;
+  gap: 1rem;
+}

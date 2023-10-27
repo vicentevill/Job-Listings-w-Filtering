@@ -1,0 +1,29 @@
+<p>job-listings works!</p>
+<ul class="listings">
+  <li class="listings__listing-TEMP" *ngFor="let listing of jobListingsData">
+    <img class="listings__listing" [src]="listing.logo" alt="" />
+    <div class="listings__listing-info">
+      <div class="listings__listing-company-new-featured-wrapper">
+        <p class="listings__listing">{{ listing.company }}</p>
+        <p class="listings__listing" *ngIf="listing.new">New!</p>
+        <p class="listings__listing" *ngIf="listing.featured">Featured</p>
+      </div>
+      <h1 class="listings__listing">{{ listing.position }}</h1>
+      <div class="listings__listing-posted-contract-location-wrapper">
+        <p>{{ listing.postedAt }}</p>
+        <span>&centerdot;</span>
+        <p>{{ listing.contract }}</p>
+        <span>&centerdot;</span>
+        <p>{{ listing.location }}</p>
+      </div>
+    </div>
+    <div class="listings__listing-languages-tools">
+      <div class="listings__listing" *ngFor="let lang of listing.languages">
+        {{ lang }}
+      </div>
+      <div class="listings__listing" *ngFor="let tool of listing.tools">
+        {{ tool }}
+      </div>
+    </div>
+  </li>
+</ul>
