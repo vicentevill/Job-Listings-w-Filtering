@@ -1,28 +1,44 @@
 <p>job-listings works!</p>
+<div (click)="filterListings()">filter list</div>
 <ul class="listings">
-  <li class="listings__listing-TEMP" *ngFor="let listing of jobListingsData">
-    <img class="listings__listing" [src]="listing.logo" alt="" />
-    <div class="listings__listing-info">
-      <div class="listings__listing-company-new-featured-wrapper">
-        <p class="listings__listing">{{ listing.company }}</p>
-        <p class="listings__listing" *ngIf="listing.new">New!</p>
-        <p class="listings__listing" *ngIf="listing.featured">Featured</p>
+  <li
+    class="listings__listing-TEMP"
+    *ngFor="let listing of filteredJobListings"
+    [ngStyle]="{
+      borderLeft: listing.featured
+        ? '0.25rem solid var(--desaturated-dark-cyan)'
+        : ''
+    }"
+  >
+    <img class="listings__listing-logo" [src]="listing.logo" alt="logo" />
+    <div class="listings__listing-info-lang-tools-wrapper">
+      <div class="listings__listing-info">
+        <div class="listings__listing-company-new-featured-wrapper">
+          <p class="listings__listing-company">{{ listing.company }}</p>
+          <p class="listings__listing-new" *ngIf="listing.new">NEW!</p>
+          <p class="listings__listing-featured" *ngIf="listing.featured">
+            FEATURED
+          </p>
+        </div>
+        <h1 class="listings__listing-position">{{ listing.position }}</h1>
+        <div class="listings__listing-posted-contract-location-wrapper">
+          <p>{{ listing.postedAt }}</p>
+          <span>&centerdot;</span>
+          <p>{{ listing.contract }}</p>
+          <span>&centerdot;</span>
+          <p>{{ listing.location }}</p>
+        </div>
       </div>
-      <h1 class="listings__listing">{{ listing.position }}</h1>
-      <div class="listings__listing-posted-contract-location-wrapper">
-        <p>{{ listing.postedAt }}</p>
-        <span>&centerdot;</span>
-        <p>{{ listing.contract }}</p>
-        <span>&centerdot;</span>
-        <p>{{ listing.location }}</p>
-      </div>
-    </div>
-    <div class="listings__listing-languages-tools">
-      <div class="listings__listing" *ngFor="let lang of listing.languages">
-        {{ lang }}
-      </div>
-      <div class="listings__listing" *ngFor="let tool of listing.tools">
-        {{ tool }}
+      <div class="listings__listing-languages-tools">
+        <div
+          class="listings__listing-lang"
+          *ngFor="let lang of listing.languages"
+        >
+          {{ lang }}
+        </div>
+        <div class="listings__listing-tool" *ngFor="let tool of listing.tools">
+          {{ tool }}
+        </div>
       </div>
     </div>
   </li>
