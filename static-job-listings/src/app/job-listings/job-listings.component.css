@@ -90,4 +90,48 @@
   padding: 0.25rem;
   border-radius: 0.2rem;
   cursor: pointer;
+  font-weight: 700;
+}
+
+.currentFilters {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background: var(--white);
+  border-radius: 0.2rem;
+}
+
+.currentFilters__wrapper {
+  display: flex;
+  gap: 1rem;
+}
+
+.currentFilters__filter-button {
+  display: flex;
+  color: var(--desaturated-dark-cyan);
+  background: var(--light-grayish-cyan);
+  align-items: center;
+  border-radius: 0.2rem;
+  overflow: hidden;
+}
+
+.currentFilters__remove {
+  background: var(--black);
+  padding: 0.25rem;
+  cursor: pointer;
+}
+
+.currentFilters__remove:hover {
+  background: var(--desaturated-dark-cyan);
+}
+
+.currentFilters__filter-name {
+  padding: 0.25rem;
+  font-weight: 700;
+}
+
+.currentFilters__clear:hover {
+  text-decoration: underline;
+  color: var(--desaturated-dark-cyan);
+  cursor: pointer;
 }

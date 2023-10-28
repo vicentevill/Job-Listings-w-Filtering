@@ -1,5 +1,29 @@
 <p>job-listings works!</p>
-<div (click)="filterListings()">filter list</div>
+<!-- <div (click)="filterListings()">filter list</div> -->
+<ul class="currentFilters" *ngIf="languageFilters.length || toolFilters.length">
+  <div class="currentFilters__wrapper">
+    <li
+      class="currentFilters__filter-button"
+      *ngFor="let filter of languageFilters"
+    >
+      <p class="currentFilters__filter-name">{{ filter }}</p>
+      <div class="currentFilters__remove" (click)="removeLangFilter(filter)">
+        <img src="../assets/images/icon-remove.svg" alt="removeFilter" />
+      </div>
+    </li>
+    <li
+      class="currentFilters__filter-button"
+      *ngFor="let filter of toolFilters"
+    >
+      <p class="currentFilters__filter-name">{{ filter }}</p>
+      <div class="currentFilters__remove" (click)="removeToolFilter(filter)">
+        <img src="../assets/images/icon-remove.svg" alt="removeFilter" />
+      </div>
+    </li>
+  </div>
+
+  <p class="currentFilters__clear" (click)="clearFilters()">Clear</p>
+</ul>
 <ul class="listings">
   <li
     class="listings__listing-TEMP"
@@ -33,10 +57,15 @@
         <div
           class="listings__listing-lang"
           *ngFor="let lang of listing.languages"
+          (click)="addLangFilter(lang)"
         >
           {{ lang }}
         </div>
-        <div class="listings__listing-tool" *ngFor="let tool of listing.tools">
+        <div
+          class="listings__listing-tool"
+          *ngFor="let tool of listing.tools"
+          (click)="addToolFilter(tool)"
+        >
           {{ tool }}
         </div>
       </div>

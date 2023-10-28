@@ -11,9 +11,9 @@ export class JobListingsComponent {
 
   filteredJobListings: any[] = [];
 
-  languageFilters = ['JavaScript'];
+  languageFilters: string[] = [];
 
-  toolsFilters = ['Sass'];
+  toolFilters: string[] = [];
 
   // filterListings() {
   //   this.filteredJobListings = this.jobListingsData.filter((listing) => {
@@ -22,6 +22,7 @@ export class JobListingsComponent {
   //     );
   //   });
   // }
+
   filterListings() {
     this.filteredJobListings = this.jobListingsData.filter((listing) => {
       // Filter by languages
@@ -30,7 +31,7 @@ export class JobListingsComponent {
       );
 
       // Filter by tools
-      const toolsFilterPass = this.toolsFilters.every((tool) =>
+      const toolsFilterPass = this.toolFilters.every((tool) =>
         listing.tools.includes(tool)
       );
 
@@ -43,6 +44,39 @@ export class JobListingsComponent {
   //     { lang: ['JS', 'TS', 'HTML'] },
   //     { lang: ['HTML', 'CSS'] },
   //   ];
+
+  addLangFilter(filterStr: string) {
+    if (!this.languageFilters.includes(filterStr)) {
+      this.languageFilters.push(filterStr);
+    }
+    this.filterListings();
+  }
+
+  addToolFilter(filterStr: string) {
+    if (!this.toolFilters.includes(filterStr)) {
+      this.toolFilters.push(filterStr);
+    }
+    this.filterListings();
+  }
+
+  removeLangFilter(filterStr: string) {
+    const i = this.languageFilters.indexOf(filterStr);
+    this.languageFilters.splice(i, 1);
+    this.filterListings();
+  }
+
+  removeToolFilter(filterStr: string) {
+    const i = this.toolFilters.indexOf(filterStr);
+    this.toolFilters.splice(i, 1);
+    this.filterListings();
+  }
+
+  clearFilters() {
+    this.languageFilters = [];
+    this.toolFilters = [];
+    this.filterListings();
+  }
+
   constructor(private fetchJobListingsService: FetchJobListingsService) {}
 
   ngOnInit(): void {
