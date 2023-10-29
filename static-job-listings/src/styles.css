@@ -3,7 +3,7 @@
 :root {
   --white: white;
   --black: black;
-  --light-grayish-cyan-bg-: hsl(180, 52%, 96%);
+  --light-grayish-cyan-bg: hsl(180, 52%, 96%);
   --light-grayish-cyan: hsl(180, 31%, 95%);
   --dark-grayish-cyan: hsl(180, 8%, 52%);
   --very-dark-grayish-cyan: hsl(180, 14%, 20%);
@@ -29,6 +29,7 @@
 
 html {
   font-family: "League Spartan", sans-serif;
+  background: var(--light-grayish-cyan-bg);
 }
 
 body {
