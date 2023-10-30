@@ -83,6 +83,7 @@
   display: flex;
   gap: 1rem;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .listings__listing-lang,
@@ -94,6 +95,7 @@
   border-radius: 0.2rem;
   cursor: pointer;
   font-weight: 700;
+  width: fit-content;
 }
 
 .currentFilters {
@@ -111,6 +113,7 @@
 .currentFilters__wrapper {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .currentFilters__filter-button {
@@ -120,6 +123,7 @@
   align-items: center;
   border-radius: 0.2rem;
   overflow: hidden;
+  width: fit-content;
 }
 
 .currentFilters__remove {
@@ -150,4 +154,41 @@
 
 .background-wrapper {
   background: var(--desaturated-dark-cyan);
+}
+
+@media only screen and (max-width: 800px) {
+  .listings {
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .listings__listing-TEMP {
+    flex-direction: column;
+    position: relative;
+    padding-top: 3rem;
+  }
+
+  .listings__divider {
+    border-top: 2px solid var(--dark-grayish-cyan);
+  }
+
+  .listings__listing-info-lang-tools-wrapper {
+    flex-direction: column;
+    justify-content: baseline;
+    gap: 1rem;
+  }
+
+  /* .listings__listing-languages-tools {
+    display: grid;
+    grid-template-columns: repeat(3, min-content);
+  } */
+
+  /* .currentFilters__wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+  } */
+  .listings__listing-logo {
+    position: absolute;
+    top: -20px;
+  }
 }
