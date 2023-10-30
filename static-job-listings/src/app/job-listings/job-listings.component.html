@@ -1,7 +1,10 @@
 <div class="background-wrapper">
   <img src="../assets/images/bg-header-desktop.svg" alt="background" />
 </div>
-<ul class="currentFilters" *ngIf="languageFilters.length || toolFilters.length">
+<ul
+  class="currentFilters"
+  *ngIf="languageFilters.length || toolFilters.length || levelFilter"
+>
   <div class="currentFilters__wrapper">
     <li
       class="currentFilters__filter-button"
@@ -18,6 +21,12 @@
     >
       <p class="currentFilters__filter-name">{{ filter }}</p>
       <div class="currentFilters__remove" (click)="removeToolFilter(filter)">
+        <img src="../assets/images/icon-remove.svg" alt="removeFilter" />
+      </div>
+    </li>
+    <li class="currentFilters__filter-button" *ngIf="levelFilter">
+      <p class="currentFilters__filter-name">{{ levelFilter }}</p>
+      <div class="currentFilters__remove" (click)="removeLevelFilter()">
         <img src="../assets/images/icon-remove.svg" alt="removeFilter" />
       </div>
     </li>
@@ -68,6 +77,12 @@
           (click)="addToolFilter(tool)"
         >
           {{ tool }}
+        </div>
+        <div
+          class="listings__listing-level"
+          (click)="addLevelFilter(listing.level)"
+        >
+          {{ listing.level }}
         </div>
       </div>
     </div>

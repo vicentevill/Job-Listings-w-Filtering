@@ -13,7 +13,7 @@
   flex-direction: column;
   gap: 1rem;
   margin-top: 1rem;
-  margin: 1rem 5% 0rem 5%;
+  margin: 1rem 5%;
 }
 
 .listings__listing-TEMP {
@@ -86,7 +86,8 @@
 }
 
 .listings__listing-lang,
-.listings__listing-tool {
+.listings__listing-tool,
+.listings__listing-level {
   color: var(--desaturated-dark-cyan);
   background: var(--light-grayish-cyan);
   padding: 0.25rem;

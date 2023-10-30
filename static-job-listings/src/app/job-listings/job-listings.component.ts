@@ -15,6 +15,8 @@ export class JobListingsComponent {
 
   toolFilters: string[] = [];
 
+  levelFilter: string = '';
+
   // filterListings() {
   //   this.filteredJobListings = this.jobListingsData.filter((listing) => {
   //     return this.languageFilters.every((filter) =>
@@ -35,8 +37,10 @@ export class JobListingsComponent {
         listing.tools.includes(tool)
       );
 
+      const levelFilterPass = listing.level.includes(this.levelFilter);
+
       // Return true if both language and tools filters pass
-      return languageFilterPass && toolsFilterPass;
+      return languageFilterPass && toolsFilterPass && levelFilterPass;
     });
   }
   //  testData = [
@@ -71,9 +75,21 @@ export class JobListingsComponent {
     this.filterListings();
   }
 
+  addLevelFilter(filterStr: string) {
+    this.levelFilter = filterStr;
+    this.filterListings();
+    console.log(this.levelFilter);
+  }
+
+  removeLevelFilter() {
+    this.levelFilter = '';
+    this.filterListings();
+  }
+
   clearFilters() {
     this.languageFilters = [];
     this.toolFilters = [];
+    this.levelFilter = '';
     this.filterListings();
   }
 
